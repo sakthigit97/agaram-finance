@@ -64,12 +64,17 @@ export function QuickActionDialog({
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
   const [loanType, setLoanType] = useState<'Daily' | 'Weekly' | 'Monthly'>('Daily')
+  const [customerSearch, setCustomerSearch] = useState('')
   const [idempotencyKey, setIdempotencyKey] = useState(() => crypto.randomUUID())
   const [temporaryPassword, setTemporaryPassword] = useState('')
   const title = action === 'customer' ? 'Add a customer'
     : action === 'staff' ? 'Add an agent'
       : action === 'loan' ? 'Create a loan' : 'Record a payment'
   const customFields = action === 'customer' ? customerFields : action === 'loan' ? loanFields : staffFields
+  const visibleCustomers = customers.filter((customer) => {
+    const search = customerSearch.trim().toLowerCase()
+    return !search || [customer.name, customer.id, customer.phone].some((value) => value.toLowerCase().includes(search))
+  })
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -190,7 +195,8 @@ export function QuickActionDialog({
               <label className="form-field">Notes (optional)<textarea name="notes" maxLength={1000} rows={2} /></label>
             </>}
             {action === 'loan' && <>
-              <label className="form-field">Customer<select name="customerId" defaultValue="" required><option value="" disabled>Select a customer</option>{customers.map((customer) => <option key={customer.id} value={customer.id}>{customer.name} · {customer.phone}</option>)}</select></label>
+              <label className="form-field">Find customer<input type="search" value={customerSearch} onChange={(event) => setCustomerSearch(event.target.value)} placeholder="Search by name, customer ID, or mobile" /></label>
+              <label className="form-field">Customer<select name="customerId" defaultValue="" required><option value="" disabled>Select a customer</option>{visibleCustomers.map((customer) => <option key={customer.id} value={customer.id}>{customer.name} · {customer.id}</option>)}</select></label>
               <label className="form-field">Loan type<select name="type" value={loanType} onChange={(event) => setLoanType(event.target.value as 'Daily' | 'Weekly' | 'Monthly')}><option>Daily</option><option>Weekly</option><option>Monthly</option></select></label>
               <label className="form-field">Principal amount (₹)<input name="principal" type="number" min="0.01" step="0.01" required placeholder="10000" inputMode="decimal" /></label>
                   <div className="form-row"><label className="form-field">{loanType === 'Monthly' ? 'Monthly interest (₹)' : 'Upfront interest (₹)'}<input name="interest" type="number" min="0" step="0.01" placeholder={loanType === 'Monthly' ? '3000' : '1000'} inputMode="decimal" /></label><label className="form-field">Book fee (₹)<input name="fee" type="number" min="0" step="0.01" placeholder="0" inputMode="decimal" disabled={loanType === 'Monthly'} /></label></div>
