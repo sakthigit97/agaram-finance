@@ -29,7 +29,8 @@ npm install
 $env:AWS_PROFILE = "default"
 $env:AWS_REGION = "ap-south-2"
 $env:STAGE = "dev"
-$env:ALLOWED_ORIGIN = "http://localhost:5173"
+# Production frontend origin. Do not include a trailing slash.
+$env:ALLOWED_ORIGIN = "https://agaram-finance.vercel.app"
 npm run build
 npx serverless package --stage dev --region ap-south-2
 npx serverless deploy --stage dev --region ap-south-2

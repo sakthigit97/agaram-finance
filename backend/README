@@ -5,7 +5,7 @@ How to Deploy the Backend
   $env:AWS_PROFILE = "default"
   $env:AWS_REGION = "ap-south-2"
   $env:STAGE = "dev"
-  $env:ALLOWED_ORIGIN = "http://localhost:5173"
+  $env:ALLOWED_ORIGIN = "https://agaram-finance.vercel.app"
   $env:BUSINESS_ID = "default"
 
   npm ci
