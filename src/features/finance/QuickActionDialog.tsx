@@ -182,9 +182,9 @@ export function QuickActionDialog({
               <p className="form-hint">A unique temporary password is created and must be changed at first sign-in.</p>
             </>}
             {action === 'customer' && <>
-              <label className="form-field">Full name<input name="name" autoFocus required maxLength={100} placeholder="e.g. Meena Krishnan" /></label>
+              <label className="form-field">Full name<input name="name" autoFocus required maxLength={100} placeholder="e.g. Sakthibalan Arivazhagan" /></label>
               <label className="form-field">Mobile number<input name="phone" required maxLength={10} pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" inputMode="numeric" /></label>
-              <label className="form-field">Area or locality<input name="area" required maxLength={100} placeholder="e.g. Anna Nagar" /></label>
+              <label className="form-field">Area or locality<input name="area" required maxLength={100} placeholder="e.g. Mannargudi" /></label>
               <label className="form-field">Address (optional)<input name="address" maxLength={500} /></label>
               <label className="form-field">Email (optional)<input name="email" type="email" maxLength={254} /></label>
               <label className="form-field">Notes (optional)<textarea name="notes" maxLength={1000} rows={2} /></label>

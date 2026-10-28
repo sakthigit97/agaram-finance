@@ -15,3 +15,6 @@ How to Deploy the Backend
 
 deployment Guid
 C:\Users\Sakthibalan\Desktop\Agaram-Finance\docs\deployment-guide.md
+
+create admin user 
+npm run bootstrap:admin    
