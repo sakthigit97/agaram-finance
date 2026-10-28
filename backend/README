@@ -1,0 +1,17 @@
+
+How to Deploy the Backend
+  Set-Location .\backend
+
+  $env:AWS_PROFILE = "default"
+  $env:AWS_REGION = "ap-south-2"
+  $env:STAGE = "dev"
+  $env:ALLOWED_ORIGIN = "http://localhost:5173"
+  $env:BUSINESS_ID = "default"
+
+  npm ci
+  npm run build
+  npx serverless deploy --stage dev --region ap-south-2 --aws-profile default
+--------------
+
+deployment Guid
+C:\Users\Sakthibalan\Desktop\Agaram-Finance\docs\deployment-guide.md

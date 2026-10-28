@@ -1,0 +1,28 @@
+{
+  "name": "@agaram-finance/backend",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "deploy:dev": "serverless deploy --stage dev",
+    "remove:dev": "serverless remove --stage dev",
+    "test": "vitest run",
+    "bootstrap:admin": "tsx scripts/bootstrap-admin.ts"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "@types/node": "^24.10.0",
+    "serverless": "^4.22.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1156.0",
+    "@aws-sdk/client-ssm": "^3.1156.0",
+    "@aws-sdk/lib-dynamodb": "^3.1156.0",
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.13",
+    "zod": "^4.6.7"
+  }
+}
