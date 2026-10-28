@@ -10,6 +10,7 @@
   inset: 0 auto 0 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   z-index: 5;
 }
 .brand { display: flex; align-items: center; gap: 10px; padding: 1px 10px 22px; text-decoration: none; color: var(--ink); }
@@ -24,20 +25,20 @@
 .sidebar-create { width: 100%; margin-bottom: 24px; }
 .shortcut { margin-left: auto; color: #c5e3d7; font-size: 10px; font-weight: 500; }
 .nav-caption { padding: 0 10px; margin-bottom: 8px; color: #9ba39f; font-size: 9px; font-weight: 700; letter-spacing: 1.15px; }
-.primary-nav { display: flex; flex-direction: column; gap: 3px; }
+.primary-nav { display: flex; flex: 1 1 auto; flex-direction: column; min-height: 0; gap: 3px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .nav-link { display: flex; align-items: center; gap: 11px; height: 40px; padding: 0 10px; border-radius: 8px; color: #69736e; text-decoration: none; font-size: 12px; font-weight: 520; transition: background .18s ease, color .18s ease; }
 .nav-link:hover { color: var(--green); background: #f6f8f6; }
 .nav-link.active { color: #166c54; background: #eaf4ef; font-weight: 650; }
 .quick-menu { position: absolute; top: 192px; left: 14px; right: 14px; z-index: 10; display: flex; flex-direction: column; padding: 5px; background: #fff; border: 1px solid var(--line); border-radius: 9px; box-shadow: 0 12px 30px #17251c1a; }
 .quick-menu button { border: 0; background: transparent; color: #4b5650; text-align: left; padding: 10px; border-radius: 6px; font-size: 12px; }
 .quick-menu button:hover { color: var(--green); background: #f2f7f3; }
-.sidebar-spacer { flex: 1; min-height: 20px; }
+.sidebar-spacer { display: none; }
 .sidebar-note { padding: 14px; margin: 14px 2px 18px; background: #f6f8f6; border: 1px solid #eff2ef; border-radius: 10px; }
 .note-icon { display: grid; place-items: center; width: 30px; height: 30px; margin-bottom: 9px; border-radius: 8px; color: #22775f; background: #e5f2eb; }
 .sidebar-note strong { font-size: 11px; }
 .sidebar-note p { margin: 5px 0 9px; color: #808984; font-size: 10px; line-height: 1.55; }
 .sidebar-note button { padding: 0; border: 0; background: transparent; color: #18775e; font-size: 10px; font-weight: 650; }
-.sidebar-bottom { padding-top: 6px; border-top: 1px solid var(--line); }
+.sidebar-bottom { flex: 0 0 auto; padding-top: 6px; border-top: 1px solid var(--line); background: #fff; }
 .profile-button { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 13px; padding: 8px 5px 2px; border: 0; background: transparent; text-align: left; }
 .profile-button > svg { color: #8a938e; }
 .profile-avatar, .top-avatar { display: grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; color: #5a483b; background: #f1dfcf; font-size: 10px; font-weight: 700; }
